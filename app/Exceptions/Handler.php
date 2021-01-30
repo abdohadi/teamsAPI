@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Throwable;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -38,16 +39,32 @@ class Handler extends ExceptionHandler
         $this->renderable(function (Throwable $e, $request) {
             if ($e instanceof ValidationException) {
                 return $this->convertValidationExceptionToResponse($e, $request);
+            } elseif ($e instanceof AuthenticationException) {
+                return $this->unauthenticated($request, $e);
             }
         });
     }
 
     protected function convertValidationExceptionToResponse(ValidationException $e, $request)
     {
-        if ($e->response) {
-            return $e->response;
+        if ($this->isFrontend($request)) {
+            return $request->ajax() ? $e->response : back()->withInput($request->input())->withErrors($e->errors());
         }
 
         return $this->invalidJson($request, $e);
+    }
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if ($this->isFrontend($request)) {
+            return redirect()->guest($exception->redirectTo() ?? route('login'));
+        }
+
+        return response()->json(['message' => $exception->getMessage()], 401);
+    }
+
+    protected function isFrontend($request)
+    {
+        return $request->acceptsHtml() && collect($request->route()->middleware())->contains('web');
     }
 }

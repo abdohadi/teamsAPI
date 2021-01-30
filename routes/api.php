@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\MatchController;
@@ -16,13 +15,12 @@ use App\Http\Controllers\MatchController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function () {
+	Route::post('/teams', [TeamController::class, 'store']);
+	Route::get('/teams', [TeamController::class, 'index']);
+	Route::get('/teams/rankings', [TeamController::class, 'rankings']);
+
+	Route::post('/matches', [MatchController::class, 'store']);
 });
 
-Route::post('/teams', [TeamController::class, 'store']);
-Route::get('/teams', [TeamController::class, 'index']);
-Route::get('/teams/rankings', [TeamController::class, 'rankings']);
-
-Route::post('/matches', [MatchController::class, 'store']);
 
