@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/my-clients', function() {
+	return view('clients.my-clients');
+})->name('my-clients');
+
+Route::get('/my-authorized-clients', function() {
+	return view('clients.my-authorized-clients');
+})->name('my-authorized-clients');
