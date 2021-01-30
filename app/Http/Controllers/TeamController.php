@@ -29,6 +29,10 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'team_name' => 'required|max:255'
+        ]);
+
         $team = Team::create(['team_name' => $request->team_name]);
 
         return response()->json([

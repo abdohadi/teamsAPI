@@ -2,8 +2,10 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -33,8 +35,19 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (Throwable $e, $request) {
+            if ($e instanceof ValidationException) {
+                return $this->convertValidationExceptionToResponse($e, $request);
+            }
         });
+    }
+
+    protected function convertValidationExceptionToResponse(ValidationException $e, $request)
+    {
+        if ($e->response) {
+            return $e->response;
+        }
+
+        return $this->invalidJson($request, $e);
     }
 }

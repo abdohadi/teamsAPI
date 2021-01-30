@@ -15,7 +15,14 @@ class MatchController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate request
+        $idRules = 'required|integer|numeric|min:1';
+        $scoreRules = 'required|integer|numeric|min:0';
+        $request->validate([
+            'team_a_id' => $idRules,
+            'team_b_id' => $idRules,
+            'team_a_score' => $scoreRules,
+            'team_b_score' => $scoreRules,
+        ]);
 
         // New match
         $match = Match::create();
