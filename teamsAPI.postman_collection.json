@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "f6998a3c-c50f-4852-8c49-c22ebf8c8aa5",
+		"name": "teamsAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "store team",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNmJjZTlhMTUyODBkYzljN2I1ZjliYTJkNjMzZDZiZTA2OTU1NDAwMjRhNzcxODBjZDlmNmUzZDA4ZDcyMTYyYTY3ZTMxMWFmZTY3M2E2ODAiLCJpYXQiOiIxNjEyMDU2NTQ0LjQ5MTM1NCIsIm5iZiI6IjE2MTIwNTY1NDQuNDkxMzcwIiwiZXhwIjoiMTY0MzU5MjU0NC4yNDg0NjMiLCJzdWIiOiIxIiwic2NvcGVzIjpbImNyZWF0ZS1tYXRjaCIsIm1hbmFnZS10ZWFtIl19.vx7G6U37TnPvgL9-UeCFRrx3yf4FsR0WBqca4MAS0NehI591yJFNolPsl1ZQ9qFMDR8F3e7TdCKy3MoeayHuhsmfkDDVeagRZ98WEDntkbshAc8_7Qb_7U8Miuuyrr9N8NIX193h1aFEJ1GEvMFiEYLkDpi8r9jnVrdkDXPTknAxqOYRYNlvp8oq5ukYAHiGwkm9kfFM6ICK44m8JhqXEdK0BvflHY9LYRz0UZ_vaYumVt6-SJgTDC6Rsx3PMGm__XByxcRVRTdgR7hEmUE6z7UFcWYkfPG-My1BWFxsczFDBlkJZLy22JaAydXqxWJaYyzoWuEWGW4giwjvbbNfSpo9NpynEyqY0qngoaJuBT3doLn1srgEmZDir81I152-yd-kNaSq_h10Ui5iBGyrKizvuyzic5Sw9dMhts-xdAJ4Uj-fqiyaDhI6Fr0s0mFqz7QCGdeMlWBpEgs9HTq_QTH-9pEBUoujI7V_QXFSbN664HOz57Eirw7wb34OvJ3xWocS5RuKnPAyP9K9ouwujB78R0H7HHMQtItIFL2G2Pe4Z3DjEUCOTBC2p_V87BWl7xYtlULHmutJIzqeRcEXFBu5Usi5v1K75r_0WHtxJNLYPwkKyJblaTuowCwq8pZWPdLU_8VGFeDS4bLRKAfu3UNv2-UErOA97FXjc5Ywnns",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "team_name",
+							"value": "team_z",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/teams",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all teams",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNmJjZTlhMTUyODBkYzljN2I1ZjliYTJkNjMzZDZiZTA2OTU1NDAwMjRhNzcxODBjZDlmNmUzZDA4ZDcyMTYyYTY3ZTMxMWFmZTY3M2E2ODAiLCJpYXQiOiIxNjEyMDU2NTQ0LjQ5MTM1NCIsIm5iZiI6IjE2MTIwNTY1NDQuNDkxMzcwIiwiZXhwIjoiMTY0MzU5MjU0NC4yNDg0NjMiLCJzdWIiOiIxIiwic2NvcGVzIjpbImNyZWF0ZS1tYXRjaCIsIm1hbmFnZS10ZWFtIl19.vx7G6U37TnPvgL9-UeCFRrx3yf4FsR0WBqca4MAS0NehI591yJFNolPsl1ZQ9qFMDR8F3e7TdCKy3MoeayHuhsmfkDDVeagRZ98WEDntkbshAc8_7Qb_7U8Miuuyrr9N8NIX193h1aFEJ1GEvMFiEYLkDpi8r9jnVrdkDXPTknAxqOYRYNlvp8oq5ukYAHiGwkm9kfFM6ICK44m8JhqXEdK0BvflHY9LYRz0UZ_vaYumVt6-SJgTDC6Rsx3PMGm__XByxcRVRTdgR7hEmUE6z7UFcWYkfPG-My1BWFxsczFDBlkJZLy22JaAydXqxWJaYyzoWuEWGW4giwjvbbNfSpo9NpynEyqY0qngoaJuBT3doLn1srgEmZDir81I152-yd-kNaSq_h10Ui5iBGyrKizvuyzic5Sw9dMhts-xdAJ4Uj-fqiyaDhI6Fr0s0mFqz7QCGdeMlWBpEgs9HTq_QTH-9pEBUoujI7V_QXFSbN664HOz57Eirw7wb34OvJ3xWocS5RuKnPAyP9K9ouwujB78R0H7HHMQtItIFL2G2Pe4Z3DjEUCOTBC2p_V87BWl7xYtlULHmutJIzqeRcEXFBu5Usi5v1K75r_0WHtxJNLYPwkKyJblaTuowCwq8pZWPdLU_8VGFeDS4bLRKAfu3UNv2-UErOA97FXjc5Ywnns",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/teams",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rankings",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNmJjZTlhMTUyODBkYzljN2I1ZjliYTJkNjMzZDZiZTA2OTU1NDAwMjRhNzcxODBjZDlmNmUzZDA4ZDcyMTYyYTY3ZTMxMWFmZTY3M2E2ODAiLCJpYXQiOiIxNjEyMDU2NTQ0LjQ5MTM1NCIsIm5iZiI6IjE2MTIwNTY1NDQuNDkxMzcwIiwiZXhwIjoiMTY0MzU5MjU0NC4yNDg0NjMiLCJzdWIiOiIxIiwic2NvcGVzIjpbImNyZWF0ZS1tYXRjaCIsIm1hbmFnZS10ZWFtIl19.vx7G6U37TnPvgL9-UeCFRrx3yf4FsR0WBqca4MAS0NehI591yJFNolPsl1ZQ9qFMDR8F3e7TdCKy3MoeayHuhsmfkDDVeagRZ98WEDntkbshAc8_7Qb_7U8Miuuyrr9N8NIX193h1aFEJ1GEvMFiEYLkDpi8r9jnVrdkDXPTknAxqOYRYNlvp8oq5ukYAHiGwkm9kfFM6ICK44m8JhqXEdK0BvflHY9LYRz0UZ_vaYumVt6-SJgTDC6Rsx3PMGm__XByxcRVRTdgR7hEmUE6z7UFcWYkfPG-My1BWFxsczFDBlkJZLy22JaAydXqxWJaYyzoWuEWGW4giwjvbbNfSpo9NpynEyqY0qngoaJuBT3doLn1srgEmZDir81I152-yd-kNaSq_h10Ui5iBGyrKizvuyzic5Sw9dMhts-xdAJ4Uj-fqiyaDhI6Fr0s0mFqz7QCGdeMlWBpEgs9HTq_QTH-9pEBUoujI7V_QXFSbN664HOz57Eirw7wb34OvJ3xWocS5RuKnPAyP9K9ouwujB78R0H7HHMQtItIFL2G2Pe4Z3DjEUCOTBC2p_V87BWl7xYtlULHmutJIzqeRcEXFBu5Usi5v1K75r_0WHtxJNLYPwkKyJblaTuowCwq8pZWPdLU_8VGFeDS4bLRKAfu3UNv2-UErOA97FXjc5Ywnns",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/teams/rankings",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"teams",
+						"rankings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store match",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNmJjZTlhMTUyODBkYzljN2I1ZjliYTJkNjMzZDZiZTA2OTU1NDAwMjRhNzcxODBjZDlmNmUzZDA4ZDcyMTYyYTY3ZTMxMWFmZTY3M2E2ODAiLCJpYXQiOiIxNjEyMDU2NTQ0LjQ5MTM1NCIsIm5iZiI6IjE2MTIwNTY1NDQuNDkxMzcwIiwiZXhwIjoiMTY0MzU5MjU0NC4yNDg0NjMiLCJzdWIiOiIxIiwic2NvcGVzIjpbImNyZWF0ZS1tYXRjaCIsIm1hbmFnZS10ZWFtIl19.vx7G6U37TnPvgL9-UeCFRrx3yf4FsR0WBqca4MAS0NehI591yJFNolPsl1ZQ9qFMDR8F3e7TdCKy3MoeayHuhsmfkDDVeagRZ98WEDntkbshAc8_7Qb_7U8Miuuyrr9N8NIX193h1aFEJ1GEvMFiEYLkDpi8r9jnVrdkDXPTknAxqOYRYNlvp8oq5ukYAHiGwkm9kfFM6ICK44m8JhqXEdK0BvflHY9LYRz0UZ_vaYumVt6-SJgTDC6Rsx3PMGm__XByxcRVRTdgR7hEmUE6z7UFcWYkfPG-My1BWFxsczFDBlkJZLy22JaAydXqxWJaYyzoWuEWGW4giwjvbbNfSpo9NpynEyqY0qngoaJuBT3doLn1srgEmZDir81I152-yd-kNaSq_h10Ui5iBGyrKizvuyzic5Sw9dMhts-xdAJ4Uj-fqiyaDhI6Fr0s0mFqz7QCGdeMlWBpEgs9HTq_QTH-9pEBUoujI7V_QXFSbN664HOz57Eirw7wb34OvJ3xWocS5RuKnPAyP9K9ouwujB78R0H7HHMQtItIFL2G2Pe4Z3DjEUCOTBC2p_V87BWl7xYtlULHmutJIzqeRcEXFBu5Usi5v1K75r_0WHtxJNLYPwkKyJblaTuowCwq8pZWPdLU_8VGFeDS4bLRKAfu3UNv2-UErOA97FXjc5Ywnns",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "team_a_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "team_b_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "team_a_score",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "team_b_score",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/matches",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"matches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "client_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "J7P0P1temEGcDfaiYZDahTJk9H3LNnbPUK0mdLt4",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "def5020075b2c2244c1a600c0c40d0ecf077c0121a7a7adcb228e04d3a4f1469e8ad6433ef61beaf3f6437735f5deb085c5fca30564f6145a9d7b3ab79a29272fc6d63aedd8974a647ca77a1d0ecc7fcb9a22e7ce068e189cbbab182ee81132042e700b848d17c177ecad197cb776b8da73cb6ec796073cbaaf9b4eb12acc588900aff7318b8e2e2f7d0e635110bb481d1d3b1ea1bae78c1a6d49e903ff446e3b44bf29d858d206c553991d178e93664aa2830a592527641fa44f2f13b9cc95a2cbb9e0c194cd8218850d981a17b2db75307e7cc933b883cc886e5da595492c0c47f5c982e4c76b25835f275d7bbca929f17e300a2a1ff0b531854006526f043e6226ea1eff3aed37f0230288e8d375efb7f7426de414c3a47dea8c10c13581e0a2ef3c96fae3e72e78433c2c136f53f34d7b131c7bbe47e06b90e92d3479e8b0ed1583282c094ce5025f364ad17fafc0abd2c2502b147bf4b34f44f8f8393a4b56f341a86c96d2ee73aedf7f354ea3a2efd",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8000/",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "create-match",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "a@a.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/oauth/token",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
                 return response()->json(['message' => $e->getMessage(), 405]);
             }
 
-            return $this->errorResponse("Unexpected Exception. Try later", 500);
+            return response()->json(['message' => 'Unexpected Exception. Try later'], 500);
         });
     }
 

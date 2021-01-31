@@ -49,11 +49,18 @@ class TeamController extends Controller
                     ->orderByDesc('points')
                     ->get();
 
-        // Add position to show with the response
-        $teams = $teams->map(function($team, $index) {
-            $team->position = $index + 1;
-            
-            return $team;
+        // Add position to teams to show with the response
+        // Teams with the same points should have the same position
+        $teams->each(function($team, $index) use ($teams) {
+            if ($index > 0) {
+                $prevTeam = $teams->get($index-1);
+                $curTeam = $teams->get($index);
+                $prevPosition = $prevTeam->position;
+
+                $team->position = $prevTeam->points == $curTeam->points ? $prevPosition : $prevPosition+1;
+            } else {
+                $team->position = 1;
+            }
         });
 
         return response()->json(['data' => $teams]);
