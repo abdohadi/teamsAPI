@@ -7,7 +7,7 @@
 - "GET" --> '/rankings'
 	- Display rankings
 
-For a quick start you can import the routes collection on postman from the json file [here](https://github.com/abdohadi/teamsAPI/teamsAPI.postman_collection.json).
+For a quick start you can import the routes collection on postman from the json file [here](https://github.com/abdohadi/teamsAPI/blob/main/teamsAPI.postman_collection.json).
 
 You can test with tokens with any grant type but not with the Client Credentials Grant
 
