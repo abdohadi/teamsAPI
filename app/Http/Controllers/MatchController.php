@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use App\Models\Match;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,11 @@ class MatchController extends Controller
             'team_b_score' => $scoreRules,
         ]);
 
+        if (! Team::find($request->team_a_id))
+            return $this->teamNotFound($request->team_a_id);
+        if (! Team::find($request->team_b_id))
+            return $this->teamNotFound($request->team_b_id);
+
         // New match
         $match = Match::create();
         $match->teams()->attach([
@@ -35,5 +41,10 @@ class MatchController extends Controller
         $match->updateTeams();
 
         return response()->json(['data' => $match]);
+    }
+
+    protected function teamNotFound($id)
+    {
+        return response()->json(["error" => "A team with an id of '" .$id. "' not found."], 422);
     }
 }

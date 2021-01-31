@@ -15,8 +15,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::select('team_name', 'id as team_id')
-                        ->get();
+        $teams = Team::select('team_name', 'id as team_id')->get();
 
         return response()->json(['data' => $teams]);
     }
@@ -50,6 +49,7 @@ class TeamController extends Controller
                     ->orderByDesc('points')
                     ->get();
 
+        // Add position to show with the response
         $teams = $teams->map(function($team, $index) {
             $team->position = $index + 1;
             

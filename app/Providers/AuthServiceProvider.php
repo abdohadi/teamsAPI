@@ -27,5 +27,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Passport::routes();
+
+        Passport::enableImplicitGrant();
+
+        Passport::tokensCan([
+            'manage-team' => 'Create teams, view all teams and rankings',
+            'create-match' => 'Create matches',
+        ]);
     }
 }

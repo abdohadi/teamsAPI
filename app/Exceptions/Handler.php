@@ -5,8 +5,11 @@ namespace App\Exceptions;
 use Throwable;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -37,11 +40,17 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->renderable(function (Throwable $e, $request) {
-            if ($e instanceof ValidationException) {
-                return $this->convertValidationExceptionToResponse($e, $request);
-            } elseif ($e instanceof AuthenticationException) {
+            if ($e instanceof AuthenticationException) {
                 return $this->unauthenticated($request, $e);
+            } elseif ($e instanceof AccessDeniedHttpException) {
+                return response()->json(['message' => $e->getMessage()], 403);
+            } elseif ($e instanceof ValidationException) {
+                return $this->convertValidationExceptionToResponse($e, $request);
+            } elseif ($e instanceof MethodNotAllowedHttpException) {
+                return response()->json(['message' => $e->getMessage(), 405]);
             }
+
+            return $this->errorResponse("Unexpected Exception. Try later", 500);
         });
     }
 

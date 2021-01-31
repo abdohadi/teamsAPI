@@ -16,11 +16,15 @@ use App\Http\Controllers\MatchController;
 */
 
 Route::middleware('auth:api')->group(function () {
-	Route::post('/teams', [TeamController::class, 'store']);
-	Route::get('/teams', [TeamController::class, 'index']);
-	Route::get('/teams/rankings', [TeamController::class, 'rankings']);
+	Route::middleware(['scope:manage-team'])->group(function() {
+		Route::post('/teams', [TeamController::class, 'store']);
+		Route::get('/teams', [TeamController::class, 'index']);
+		Route::get('/teams/rankings', [TeamController::class, 'rankings']);
+	});
 
-	Route::post('/matches', [MatchController::class, 'store']);
+	Route::post('/matches', [MatchController::class, 'store'])->middleware(['scope:create-match']);
 });
+
+Route::post('oauth/token', [\Laravel\Passport\Http\Controllers\AccessTokenController::class, 'issueToken']);
 
 

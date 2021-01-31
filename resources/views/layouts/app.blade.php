@@ -35,6 +35,10 @@
                     <ul class="navbar-nav mr-auto">
                         @if (auth()->check())
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('personal-tokens') }}">Personal Tokens</a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('my-clients') }}">My Clients</a>
                             </li>
 
