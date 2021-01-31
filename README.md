@@ -19,8 +19,8 @@ You can test with tokens with any grant type but not with the Client Credentials
 
 ## Installation
 
-`composer install`
-`npm install && npm run dev`
-`php artisan migrate`
-`php artisan passport:install`
-`php artisan serve`
+- `composer install`
+- `npm install && npm run dev`
+- `php artisan migrate`
+- `php artisan passport:install`
+- `php artisan serve`
