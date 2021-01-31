@@ -16,3 +16,11 @@ You can test with tokens with any grant type but not with the Client Credentials
 - There are two scopes:
 	- "manage-team" scope: using this scope, you can create a team, view all teams and their rankings.
 	- "create-match" scope: to create a new match. 
+
+## Installation
+
+`composer install`
+`npm install && npm run dev`
+`php artisan migrate`
+`php artisan passport:install`
+`php artisan serve`
